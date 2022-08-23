@@ -45,6 +45,8 @@ def extract():
     # process all json files
     for jsonfile in glob.glob("*.json"):
         extracted_data = extracted_data.append(extract_from_json(jsonfile), ignore_index=True)
+        print(extract_from_json(jsonfile))
+        print(jsonfile)
 
     # process all xml files
     for xmlfile in glob.glob("*.xml"):

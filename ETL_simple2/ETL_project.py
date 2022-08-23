@@ -16,6 +16,7 @@ def extract_from_csv(file_to_process):
 #JSON Extract Function
 def extract_from_json(file_to_process):
     dataframe = pd.read_json(file_to_process, lines=True)
+    print(dataframe)
     return dataframe
 #print(extract_from_csv('/Users/martinanikola/PycharmProjects/DataEngineering/part_2/dealership_data/used_car_prices1.json'))
 
@@ -45,6 +46,7 @@ def extract():
         # process all json files
         for jsonfile in glob.glob("dealership_data/*.json"):
             extracted_data = extracted_data.append(extract_from_json(jsonfile), ignore_index=True)
+            print('DJNM!!!!!', extract_from_json(jsonfile))
 
         # process all xml files
         for xmlfile in glob.glob("dealership_data/*.xml"):
@@ -57,7 +59,6 @@ def extract():
 # Round the price columns to 2 decimal places
 def transform(data):
     data['price'] = round(data.price, 2)
-
     return data
 #print(transform(extract()))
 
